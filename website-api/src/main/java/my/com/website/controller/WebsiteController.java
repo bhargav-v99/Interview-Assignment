@@ -25,7 +25,7 @@ public class WebsiteController {
     private IWebsiteService service;
 
     @GetMapping()
-    public ResponseEntity<WebsitePageDTO> getBookmarks(@RequestParam(name = "page", defaultValue = "1") Integer page,
+    public ResponseEntity<WebsitePageDTO> getWebsites(@RequestParam(name = "page", defaultValue = "1") Integer page,
                                        @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize,
                                        @RequestParam(name = "name", required = false) String name){
 
