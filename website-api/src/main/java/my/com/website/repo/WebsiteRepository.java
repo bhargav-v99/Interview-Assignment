@@ -11,11 +11,11 @@ import java.util.Optional;
 
 public interface WebsiteRepository extends JpaRepository<Website, Long> {
 
-    @Query("select new my.com.website.dto.WebsiteDTO(b.id, b.name, b.url, b.createdAt) from Website b")
+    @Query("select new my.com.website.dto.WebsiteDTO(b.id, b.name, b.url, b.createdBy, b.createdAt) from Website b")
     Page<WebsiteDTO> findWebsites(Pageable pageable);
 
     @Query("""
-            select new my.com.website.dto.WebsiteDTO(b.id, b.name, b.url, b.createdAt) from Website b 
+            select new my.com.website.dto.WebsiteDTO(b.id, b.name, b.url, b.createdBy, b.createdAt) from Website b 
             where lower(b.name) like lower(concat('%',:name,'%'))
             """)
     Page<WebsiteDTO> searchWebsites(String name, Pageable pageable);

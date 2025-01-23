@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class WebsiteMapper {
 
     public WebsiteDTO toDto(Website website){
-        return new WebsiteDTO(website.getId(), website.getName(), website.getUrl(), website.getCreatedAt());
+        return new WebsiteDTO(website.getId(), website.getName(), website.getUrl(), website.getCreatedBy(), website.getCreatedAt());
     }
 }

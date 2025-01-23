@@ -25,5 +25,8 @@ public class Website {
     @Column(nullable = false)
     private String url;
 
+    private String createdBy;
+
     private Instant createdAt;
+
 }

@@ -48,16 +48,24 @@ public class WebsiteController {
     @PostMapping
     public ResponseEntity<WebsiteDTO> createWebsite(@RequestBody @Valid CreateWebsiteDTO request){
         logger.info("Request : {}", request);
+
+        // Delegate the creation of the website to the service layer
         WebsiteDTO websiteDTO = service.createWebsite(request);
         logger.info("Response : {}", websiteDTO);
+
+        // Return the created website as a response entity with a 201 Created status code
         return ResponseEntity.status(HttpStatus.CREATED).body(websiteDTO);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<WebsiteDTO> updateWebsite(@PathVariable Long id, @RequestBody @Valid CreateWebsiteDTO request) {
         logger.info("Request : id: {}, request: {}", id, request);
+
+        // Delegate the update of the website to the service layer
         WebsiteDTO websiteDTO = service.updateWebsite(id, request);
         logger.info("Response : {}", websiteDTO);
+
+        // Return the updated website as a response entity with a 200 OK status code
         return ResponseEntity.status(HttpStatus.OK).body(websiteDTO);
     }
 
